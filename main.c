@@ -57,109 +57,105 @@ void main()
 			if(c1 == 0)
 			{
 				lcd_cmd(0x01);
-						lcd_cmd(0x80);
-						lcd_str(" FAN is OFF ");
-						lcd_cmd(0xc0);
-					   fan=1;          //fan off
-					  buzzer=1;
+				lcd_cmd(0x80);
+				lcd_str(" FAN is OFF ");
+				lcd_cmd(0xc0);
+				fan=1;          //fan off
+				buzzer=1;
 				delay(5000);
 				buzzer=0;
-						delay(65000);
+				delay(65000);
 			}
 			if(c2 == 0)
 			{
 				lcd_cmd(0x01);
-						fan=0;          //fan on
-						lcd_cmd(0x80);
-						lcd_str(" FAN is ONN ");
-						lcd_cmd(0xc0);
-					  buzzer=1;
+				fan=0;          //fan on
+				lcd_cmd(0x80);
+				lcd_str(" FAN is ONN ");
+				lcd_cmd(0xc0);
+				buzzer=1;
 				delay(5000);
 				buzzer=0;
-						delay(65000);
+				delay(65000);
 			}
 			if(c3 == 0)
 			{
 				// bulb=1;          //bulb off
-					
-					  lcd_cmd(0x01);
-						lcd_cmd(0x80);
-						lcd_str(" BULB is OFF ");
-						lcd_cmd(0xc0);
-					   bulb=1;          //bulb off
-						//lcd_str(a);				
-					  buzzer=1;
+				lcd_cmd(0x01);
+				lcd_cmd(0x80);
+				lcd_str(" BULB is OFF ");
+				lcd_cmd(0xc0);
+				bulb=1;          //bulb off
+				buzzer=1;
 				delay(5000);
 				buzzer=0;
-						delay(65000);
+				delay(65000);
 			}
 			r2 = 0; 
 			r1 = 1;
 			if(c1 == 0)
 			{
 				lcd_cmd(0x01);
-						lcd_cmd(0x80);
-						lcd_str(" BULB is on ");
-						lcd_cmd(0xc0);
-					   bulb=0;         // bulb on
-						//lcd_str(a);
-					  buzzer=1;
+				lcd_cmd(0x80);
+				lcd_str(" BULB is on ");
+				lcd_cmd(0xc0);
+				bulb=0;         // bulb on
+				buzzer=1;
 				delay(5000);
 				buzzer=0;
-						delay(65000);
+				delay(65000);
 			}
 			if(c2 == 0)
 			{
 				// led=1;          //led off
-					
-					  lcd_cmd(0x01);
-						lcd_cmd(0x80);
-						lcd_str(" led is OFF ");
-						lcd_cmd(0xc0);
-					   led=1;         // led off
-					  buzzer=1;
+				lcd_cmd(0x01);
+				lcd_cmd(0x80);
+				lcd_str(" led is OFF ");
+				lcd_cmd(0xc0);
+				led=1;         // led off
+				buzzer=1;
 				delay(5000);
 				buzzer=0;
-						delay(65000);
+				delay(65000);
 			}
 			if(c3 == 0)
 			{
-				  //led=0;        //led on
-					 lcd_cmd(0x01);
-						lcd_cmd(0x80);
-						lcd_str(" led is on ");
-						lcd_cmd(0xc0);
-					   led=0;         // led on
-					  buzzer=1;
+				//led=0;        //led on
+				lcd_cmd(0x01);
+				lcd_cmd(0x80);
+				lcd_str(" led is on ");
+				lcd_cmd(0xc0);
+				led=0;         // led on
+				buzzer=1;
 				delay(5000);
 				buzzer=0;
-						delay(65000);
+				delay(65000);
 			}
 			r3 = 0; 
 			r2 = 1;
 			if(c1 == 0)
 			{
 				lcd_cmd(0x01);
-						lcd_cmd(0x80);
-						lcd_str(" Everything is ON ");
-						lcd_cmd(0xc0);
-					  fan=bulb=led=0;  // all r on
-					  buzzer=1;
+				lcd_cmd(0x80);
+				lcd_str(" Everything is ON ");
+				lcd_cmd(0xc0);
+				fan=bulb=led=0;  // all r on
+				buzzer=1;
 				delay(5000);
 				buzzer=0;
-						delay(65000);
+				delay(65000);
 			}
 			if(c2 == 0)
 			{
 				lcd_cmd(0x01);
-						lcd_cmd(0x80);
-						lcd_str(" Everything is off ");
-						lcd_cmd(0xc0);
-					  fan=bulb=led=1;  // all r off
-				 buzzer=1;
+				lcd_cmd(0x80);
+				lcd_str(" Everything is off ");
+				lcd_cmd(0xc0);
+				fan=bulb=led=1;  // all r off
+				buzzer=1;
 				delay(5000);
 				buzzer=0;
-						delay(65000);
+				delay(65000);
 					
 			}
 		}
@@ -172,25 +168,23 @@ void main()
 
 void lcd_init()
 {
- lcd_cmd(0x38);
+ 	lcd_cmd(0x38);
 	lcd_cmd(0x0c);
 	lcd_cmd(0x01);
 	lcd_cmd(0x80);
-
-
 }
 
 
 void delay(unsigned int i)
 {
-unsigned int j,k;
+	unsigned int j,k;
 	for(j=0;j<i;j++);
 	for(k=0;k<980;k++);
 }
 
 void lcd_cmd(unsigned char a)
 {
-  rs=0;
+  	rs=0;
 	ldata=a;
 	en=1;
 	delay(5);
@@ -200,7 +194,7 @@ void lcd_cmd(unsigned char a)
 
 void lcd_data(unsigned char b)
 {
-  rs=1; 
+  	rs=1; 
 	ldata=b;
 	en=1;
 	delay(5);
@@ -210,10 +204,10 @@ void lcd_data(unsigned char b)
 
 void lcd_str(unsigned char *str)
 {
-while(*str)
-{
-	lcd_data(*str++);
-}
+	while(*str)
+	{
+		lcd_data(*str++);
+	}
 
 }
 
